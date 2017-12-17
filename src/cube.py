@@ -1,7 +1,37 @@
+class CubeTower(object):
+
+    def __init__(self, cubelst):
+        self._cubes = cubelst
+
+    def cubelst(self):
+        return self._cubes
+
+    def display(self):
+        cubelst = self.cubelst()
+        return '\n\n'.join([c.display() for c in cubelst])
+
+    def configlst(self):
+        cubelst = self.cubelst()
+        cfglst = []
+        for c0 in cubelst[0].views():
+            for c1 in cubelst[1].views():
+                for c2 in cubelst[2].views():
+                    for c3 in cubelst[3].views():
+                        tower = CubeTower([c0, c1, c2, c3])
+                        cfglst.append(tower)
+        return cfglst
+
+    def __eq__(self, other):
+        return self.cubelst() == other.cubelst()
+
+
 class Cube(object):
 
     def __init__(self, oplst):
         self._opposites = oplst
+
+    def __eq__(self, other):
+        return self.oplst() == other.oplst()
 
     def oplst(self):
         return self._opposites
