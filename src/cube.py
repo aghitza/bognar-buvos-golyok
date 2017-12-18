@@ -64,6 +64,12 @@ class Cube(object):
     def __eq__(self, other):
         return self.oplst() == other.oplst()
 
+    def __ge__(self, other):
+        return self.oplst() >= other.oplst()
+
+    def __gt__(self, other):
+        return self.oplst() > other.oplst()
+
     def oplst(self):
         """Return the list of opposite faces of the cube"""
         return self._opposites
@@ -90,8 +96,7 @@ class Cube(object):
             vlst.append(Cube([_reverse(lst[0]), lst[2], lst[1]]))
             vlst.append(Cube([lst[0], _reverse(lst[2]), lst[1]]))
             vlst.append(Cube([_reverse(lst[0]), _reverse(lst[1]), lst[2]]))
-        #TODO? implement __cmp__ for Cube objects, and return sorted(vlst)
-        return vlst
+        return sorted(vlst)
 
 
 def _reverse(lst):
