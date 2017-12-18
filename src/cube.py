@@ -13,10 +13,13 @@ class CubeTower(object):
         """Return the list of cubes in the tower"""
         return self._cubes
 
-    def display(self):
+    def __str__(self):
         """Print the tower configuration"""
         cubelst = self.cubelst()
-        return '\n\n'.join([c.display() for c in cubelst])
+        return '\n\n'.join([str(c) for c in cubelst])
+
+    def __repr__(self):
+        return str(self)
 
     def configlst(self):
         """Generate the list of all possible configurations of a tower"""
@@ -74,14 +77,17 @@ class Cube(object):
         """Return the list of opposite faces of the cube"""
         return self._opposites
 
-    def display(self):
-        """Print the cube out in two dimensions"""
+    def __str__(self):
+        """String representation of the cube"""
         oplst = self.oplst()
         disp = ' ' + oplst[0][0] + '\n'
         disp = disp + oplst[1][0] + oplst[2][0]
         disp = disp + oplst[1][1] + oplst[2][1]
         disp = disp + '\n' + ' ' + oplst[0][1]
         return disp
+
+    def __repr__(self):
+        return str(self)
 
     def views(self):
         """Return all the possible views of the cube (with repetitions)"""

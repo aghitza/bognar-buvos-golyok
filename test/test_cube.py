@@ -15,12 +15,12 @@ def test_cube_oplst():
     cube = Cube(oplst)
     assert cube.oplst() == oplst
 
-def test_cube_display():
-    """Test printing of Cube"""
+def test_cube_str():
+    """Test string representation of Cube"""
     oplst = [['Y', 'Y'], ['R', 'G'], ['B', 'G']]
     cube = Cube(oplst)
-    disp = ' Y\nRBGG\n Y'
-    assert cube.display() == disp
+    strcube = ' Y\nRBGG\n Y'
+    assert str(cube) == strcube
 
 def test_cube_views():
     """Test the generation of all possible views of a cube"""
@@ -51,5 +51,5 @@ def test_cube_views():
     displays.append(' G\nRYGY\n B')
     displays.append(' B\nGYRY\n G')
     displays.append(' G\nYRYG\n B')
-    views = sorted([x.display() for x in cube.views()])
+    views = sorted([str(x) for x in cube.views()])
     assert views == sorted(displays)

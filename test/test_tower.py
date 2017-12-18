@@ -18,7 +18,7 @@ def test_tower_create():
     _ = CubeTower(cubes)
     assert True
 
-def test_tower_display():
+def test_tower_str():
     """Check tower printing"""
     cubes = []
     oplst = [['Y', 'Y'], ['R', 'G'], ['B', 'G']]
@@ -35,7 +35,7 @@ def test_tower_display():
     disp3 = ' B\nRRYR\n G'
     disp4 = ' G\nYRBB\n R'
     display = disp1 + '\n\n' + disp2 + '\n\n' + disp3 + '\n\n' + disp4
-    assert tower.display() == display
+    assert str(tower) == display
 
 def test_tower_configlst_self():
     """Check whether tower appears in its list of possible configurations"""
