@@ -63,6 +63,10 @@ class CubeTower(object):
                 return False
         return True
 
+    def solutions(self):
+        """Find all solutions for the given tower"""
+        return [conf for conf in self.configlst() if conf.is_winning()]
+
 
 class Cube(object):
     """Object for one cube"""
