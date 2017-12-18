@@ -16,7 +16,13 @@ class CubeTower(object):
     def __str__(self):
         """Print the tower configuration"""
         cubelst = self.cubelst()
-        return '\n\n'.join([str(c) for c in cubelst])
+        cstrlst = []
+        for cube in cubelst:
+            cstrlst.append(str(cube).split('\n'))
+        firstline = '    '.join([cs[0] for cs in cstrlst])
+        secondline = '  '.join([cs[1] for cs in cstrlst])
+        thirdline = '    '.join([cs[2] for cs in cstrlst])
+        return '\n'.join([firstline, secondline, thirdline])
 
     def __repr__(self):
         return str(self)

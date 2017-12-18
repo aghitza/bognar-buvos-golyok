@@ -30,11 +30,10 @@ def test_tower_str():
     oplst = [['G', 'R'], ['Y', 'B'], ['R', 'B']]
     cubes.append(Cube(oplst))
     tower = CubeTower(cubes)
-    disp1 = ' Y\nRBGG\n Y'
-    disp2 = ' G\nBRYY\n B'
-    disp3 = ' B\nRRYR\n G'
-    disp4 = ' G\nYRBB\n R'
-    display = disp1 + '\n\n' + disp2 + '\n\n' + disp3 + '\n\n' + disp4
+    one = ' Y     G     B     G'
+    two = 'RBGG  BRYY  RRYR  YRBB'
+    thr = ' Y     B     G     R'
+    display = '\n'.join([one, two, thr])
     assert str(tower) == display
 
 def test_tower_configlst_self():
